@@ -4,8 +4,8 @@ require("dotenv").config();
 //express app
 const express = require('express');
 const app = express();
-const connect = require("./database/mongodb");
-connect();
+const connectMongoDb = require("./database/mongodb");
+connectMongoDb();
 //routing
 app.get('/',(req,res) => {
     res.json({hello : "world"});

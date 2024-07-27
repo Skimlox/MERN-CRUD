@@ -1,3 +1,4 @@
-function connect(){
-    console.log()
+function connectMongoDb() {
+    console.log("hello");
 }
+module.exports=connectMongoDb;
