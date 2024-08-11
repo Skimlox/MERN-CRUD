@@ -8,6 +8,11 @@ if (process.env.NODE_ENV != "production") {
 
 
 async function connectToDb() {
-    await mongoose.connect(process.env.DB_URL);
+    try {
+        await mongoose.connect(process.env.DB_URL);
+        console.log("Connected to DBA")
+} catch (error){
+    console.log(error)
+}
 }
 module.exports=connectToDb;
