@@ -13,6 +13,9 @@ const app = express();
 app.use(express.json());
 connectToDb();
 //routing
+
+
+//requests
 app.get('/',(req,res) => {
     res.json({hello : "world"})
 });
@@ -25,5 +28,5 @@ app.post("/notes",async (req,res)=>{
         body: body,
 })
 });
-//server
+//server start
 app.listen(process.env.PORT);
