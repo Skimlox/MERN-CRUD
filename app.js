@@ -19,6 +19,10 @@ connectToDb();
 app.get('/',(req,res) => {
     res.json({hello : "world"})
 });
+app.get('/notes',async (req,res) => {
+    const notes = await Note.find();
+    res.json({notes : notes});
+});
 app.post("/notes",async (req,res)=>{
     const title = req.body.title
     const body = req.body.body
