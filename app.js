@@ -23,6 +23,12 @@ app.get('/notes',async (req,res) => {
     const notes = await Note.find();
     res.json({notes : notes});
 });
+app.get('/notes/:id',async (req,res) => {
+    const noteID = req.params.id;
+    const note = await Note.findById(noteID);
+    res.json({notes : notes})
+});
+
 app.post("/notes",async (req,res)=>{
     const title = req.body.title
     const body = req.body.body
