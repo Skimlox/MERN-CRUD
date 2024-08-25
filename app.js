@@ -26,17 +26,28 @@ app.get('/notes',async (req,res) => {
 app.get('/notes/:id',async (req,res) => {
     const noteID = req.params.id;
     const note = await Note.findById(noteID);
-    res.json({notes : notes})
+    res.json({notes : notes});
 });
 
 app.post("/notes",async (req,res)=>{
-    const title = req.body.title
-    const body = req.body.body
+    const title = req.body.title;
+    const body = req.body.body;
 
     const note = await Note.create({
         title: title,
         body: body,
 })
+});
+app.put('/notes/:id',async (req,res){
+    const noteId = req.params.id;
+    const title = req.body.title;
+    const body = req.body.body;
+    const note = await Note.findByIdAndUpdate(noteId, {
+        title: String,
+        body: String,
+    });
+    //response 
+    res.json({notes : notes});
 });
 //server start
 app.listen(process.env.PORT);
