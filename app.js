@@ -42,10 +42,12 @@ app.put('/notes/:id',async (req,res){
     const noteId = req.params.id;
     const title = req.body.title;
     const body = req.body.body;
-    const note = await Note.findByIdAndUpdate(noteId, {
-        title: String,
-        body: String,
+    await Note.findByIdAndUpdate(noteId, {
+        title: title,
+        body: body,
     });
+    //updated note
+    const note = await Note.findById(noteId);
     //response 
     res.json({notes : notes});
 });
