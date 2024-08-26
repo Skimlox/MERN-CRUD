@@ -38,7 +38,7 @@ app.post("/notes",async (req,res)=>{
         body: body,
 })
 });
-app.put('/notes/:id',async (req,res){
+app.put('/notes/:id',async (req,res)=>{
     const noteId = req.params.id;
     const title = req.body.title;
     const body = req.body.body;
@@ -51,5 +51,11 @@ app.put('/notes/:id',async (req,res){
     //response 
     res.json({notes : notes});
 });
+app.put('/notes/:id',async (req,res)=>{
+    const noteId = req.params.id;
+    await Note.deleteOne({id: noteId});
+    res.json({success: "Record deleted!"});
+});
+
 //server start
 app.listen(process.env.PORT);
