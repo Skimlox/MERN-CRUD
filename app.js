@@ -51,7 +51,7 @@ app.put('/notes/:id',async (req,res)=>{
     //response 
     res.json({notes : notes});
 });
-app.put('/notes/:id',async (req,res)=>{
+app.delete('/notes/:id',async (req,res)=>{
     const noteId = req.params.id;
     await Note.deleteOne({id: noteId});
     res.json({success: "Record deleted!"});
