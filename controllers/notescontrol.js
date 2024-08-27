@@ -1,3 +1,4 @@
+const Note = require("../designs/notes");
 const fetchNotes = async (req, res) => {
     // Find the notes
     const notes = await Note.find();
